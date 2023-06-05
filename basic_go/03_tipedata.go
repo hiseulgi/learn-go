@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	/* -------------------------------------------------------------------------- */
-	/*                              // * 2. Variable                              */
+	/*                              // * 3. Tipe Data                             */
 	/* -------------------------------------------------------------------------- */
 	// Variable dengan Manifest Typing / Tipe Data
 	var firstName string = "Bagus"
