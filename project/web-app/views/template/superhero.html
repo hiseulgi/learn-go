@@ -1,0 +1,51 @@
+{{define "superhero"}}
+<html>
+
+<head>
+  <title>Belajar HTML Template Function</title>
+</head>
+
+<body>
+  {{/* fungsi escape string */}}
+  {{/* cara pemanggilan fungsi */}}
+  {{/* namaFungsi param1 param2*/}}
+  <p>
+    {{html "<h2>Hello</h2>"}}
+  </p>
+
+  {{/* fungsi operator perbandingan */}}
+  {{if eq true true}}
+  <!-- eq, ne, lt, le, gt, ge -->
+      <p>benar</p>
+  {{end}}
+
+  {{/* pemanggilan method */}}
+  <p>
+    {{.SayHello "Gotham citizen" "You are our hero!"}}
+  </p>
+
+  {{/* fungsi string */}}
+  <p>
+    {{printf "%s %s" "Hello" "World"}}
+  </p>
+
+  {{/* fungsi len dan index */}}
+  <p>
+    Batman have many friend. {{len .Friends}} of them are:
+    {{index .Friends 0}},
+    {{index .Friends 1}}, and
+    {{index .Friends 2}}
+  </p>
+
+  {{/* fungsi operator logika */}}
+  {{$cond1 := true}}
+  {{$cond2 := true}}
+
+  {{if or $cond1 $cond2}}
+    <p>Be like Batman!</p>
+  {{end}}
+</body>
+
+</html>
+
+{{end}}

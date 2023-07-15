@@ -1,0 +1,31 @@
+{{define "form"}}
+<html>
+  <head>
+    <title>Form Input Message</title>
+  </head>
+  <body>
+    <form action="/http/form/process" method="post">
+      <label for="">Name :</label>
+      <input type="text" name="name" id="name">
+      <br>
+
+      <label for="">Message :</label>
+      <input type="text" name="message" id="message">
+
+      <button type="submit">Print</button>
+    </form>
+  </body>
+</html>
+{{end}}
+
+{{define "result"}}
+<html>
+  <head>
+    <title>Show Message</title>
+  </head>
+  <body>
+    <h1>Hello {{.Name}}</h1>
+    <p>{{.Message}}</p>
+  </body>
+</html>
+{{end}}

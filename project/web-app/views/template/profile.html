@@ -1,0 +1,70 @@
+{{define "profile"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Belajar HTML Template Actions</title>
+</head>
+
+<body>
+  <table>
+
+    {{/* example how to use actions */}}
+    <tr>
+      <td>{{"Name"}}</td>
+      <td>: {{.Name}}</td>
+    </tr>
+
+    {{/* create new variable and use it */}}
+    <tr>
+      <td>Gender</td>
+      {{$gender := .Gender}}
+      <td style="text-transform: capitalize;">: {{$gender}}</td>
+    </tr>
+
+    {{/* example how to use loop */}}
+    <tr>
+      <td>Hobbies</td>
+      <td>:
+        {{range $index, $elem := .Hobbies}}
+        {{$elem}},
+        {{end}}
+      </td>
+    </tr>
+
+    {{/* example how to access property and method of object */}}
+    <tr>
+      <td>Affiliation</td>
+      <td>: {{.Info.Affiliation}} ({{.Info.GetAffiliationDetailInfo}})</td>
+    </tr>
+
+    {{/* keyword "with" for scope of variable in a block */}}
+    {{with .Info}}
+    <tr>
+      <td>Address</td>
+      <td>: {{.Address}}</td>
+    </tr>
+    {{end}}
+
+    {{/* example how to use if else */}}
+    <!-- eq -> equal (seleksi kondisi boolean) -->
+    <!-- ne -> jika kondisi yang diinginkan adalah kebalikan dari nilai variabel -->
+    {{if eq .Name "Muhammad Bagus"}}
+    <tr style="font-weight: bold;">
+      <td>Secret</td>
+      <td>: Yeah, i'm a hacker</td>
+    </tr>
+    {{else if eq .Name "Bagus"}}
+    <tr style="font-weight: bold;">
+      <td>Secret</td>
+      <td>: Yeah, i'm a script kiddies</td>
+      {{else}}
+    <tr style="font-weight: bold;">
+      <td>Secret</td>
+      <td>: Still learning</td>
+      {{end}}
+  </table>
+</body>
+
+</html>
+{{end}}
